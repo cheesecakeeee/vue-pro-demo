@@ -18,10 +18,12 @@ export default [
   },
   {
     path: '/argu/:name',
+    name: 'argu',
     component: () => import('@/views/Argu.vue')
   },
   {
     path: '/parent',
+    name: 'Parent',
     component: () => import('@/views/Parent.vue'),
     children: [
       {
