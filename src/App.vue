@@ -8,6 +8,8 @@
       <router-link :to="{name: 'About'}">About</router-link>
     </div>
     <router-view/>
+    <router-view name="email"/>
+    <router-view name="tel"/>
   </div>
 </template>
 

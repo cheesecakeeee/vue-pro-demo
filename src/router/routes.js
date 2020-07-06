@@ -28,5 +28,13 @@ export default [
         component: () => import('@/views/Child.vue')
       }
     ]
+  },
+  {
+    path: '/name_view',
+    components: {
+      default: () => import('@/views/Child.vue'),
+      email: () => import('@/views/Email.vue'),
+      tel: () => import('@/views/Tel.vue')
+    }
   }
 ]
