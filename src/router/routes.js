@@ -36,5 +36,9 @@ export default [
       email: () => import('@/views/Email.vue'),
       tel: () => import('@/views/Tel.vue')
     }
+  },
+  {
+    path: '/main',
+    redirect: '/'
   }
 ]
