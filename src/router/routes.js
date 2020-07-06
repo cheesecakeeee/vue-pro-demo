@@ -4,6 +4,7 @@ export default [
   {
     path: '/',
     name: 'Home',
+    alias: '/home_page',
     component: Home
   },
   {
