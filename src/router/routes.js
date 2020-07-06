@@ -1,4 +1,5 @@
 import Home from '../views/Home.vue'
+import Argu from '../views/Argu.vue'
 
 export default [
   {
@@ -14,5 +15,9 @@ export default [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/argu/:name',
+    component: Argu
   }
 ]
