@@ -1,5 +1,4 @@
-import Home from '../views/Home.vue'
-import Argu from '../views/Argu.vue'
+import Home from '@/views/Home.vue'
 
 export default [
   {
@@ -18,6 +17,16 @@ export default [
   },
   {
     path: '/argu/:name',
-    component: Argu
+    component: () => import('@/views/Argu.vue')
+  },
+  {
+    path: '/parent',
+    component: () => import('@/views/Parent.vue'),
+    children: [
+      {
+        path: 'child',
+        component: () => import('@/views/Child.vue')
+      }
+    ]
   }
 ]
