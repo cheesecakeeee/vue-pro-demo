@@ -19,7 +19,8 @@ export default [
   {
     path: '/argu/:name',
     name: 'argu',
-    component: () => import('@/views/Argu.vue')
+    component: () => import('@/views/Argu.vue'),
+    props: true
   },
   {
     path: '/parent',
