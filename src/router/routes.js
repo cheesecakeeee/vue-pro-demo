@@ -5,7 +5,13 @@ export default [
     path: '/',
     name: 'Home',
     alias: '/home_page',
-    component: Home
+    component: Home,
+    props: route => {
+      console.log(route)
+      return {
+        name: route.query.name
+      }
+    }
   },
   {
     path: '/about',

@@ -6,6 +6,7 @@
     <button @click="handleClick('push')">跳转parent页</button>
     <button @click="handleClick('replace')">跳转parent页</button>
     <button @click="handleClick('argu')">跳转argu页</button>
+    <div>{{name}}</div>
   </div>
 </template>
 
@@ -15,6 +16,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
+  props: {
+    name: {
+      type: String,
+      default: 'xixi'
+    }
+  },
   components: {
     HelloWorld
   },
