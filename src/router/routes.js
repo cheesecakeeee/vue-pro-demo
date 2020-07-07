@@ -53,5 +53,9 @@ export default [
   {
     path: '/main',
     redirect: '/'
+  },
+  {
+    path: '*',
+    component: () => import('@/views/Error.vue')
   }
 ]

@@ -38,7 +38,7 @@ export default {
             name: 'eric'
           }
         })
-      } else if (type === 'replace') this.$router.replace({ name: 'Parent' }) 
+      } else if (type === 'replace') this.$router.replace({ name: 'Parent' })
       else if (type === 'argu') {
         // const name = 'lala'
         this.$router.push({
