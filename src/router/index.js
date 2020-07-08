@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './routes'
+import { setTitle } from '@/lib/util.js'
 
 Vue.use(VueRouter)
 
@@ -37,6 +38,7 @@ router.beforeEach((to, from, next) => {
   // } else {
   //   next()
   // }
+  to.meta && to.meta.title && setTitle(to.meta.title)
   if (to.path === '/login') {
     // 跳转登录页时判断是否已登录;已登录跳转到home；未登录继续跳转到login
     if (HAS_LOGIN) next({ name: 'Home' })

@@ -37,7 +37,7 @@ export default [
       food: 'banana'
     },
     meta: {
-      requiresAuth: true
+      title: '关于'
     }
   },
   {

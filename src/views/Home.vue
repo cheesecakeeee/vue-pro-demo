@@ -30,9 +30,10 @@ export default {
     next()
   },
   beforeRouteLeave (to, from, next) {
-    const leave = confirm('是否确定离开')
-    if (leave) next()
-    else next(false)
+    // const leave = confirm('是否确定离开')
+    // if (leave) next()
+    // else next(false)
+    next()
   },
   beforeCreate () {
     console.log('beforeCreate')
