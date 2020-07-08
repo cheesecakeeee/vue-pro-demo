@@ -4,14 +4,22 @@ export default [
   {
     path: '/',
     name: 'Home',
-    alias: '/home_page',
+    // alias: '/home_page',
     component: Home,
     props: route => {
       console.log(route)
       return {
         name: route.query.name
       }
+    },
+    meta: {
+      requiresAuth: true
     }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/about',
@@ -23,13 +31,19 @@ export default [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
     props: {
       food: 'banana'
+    },
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: '/argu/:name',
     name: 'argu',
     component: () => import('@/views/Argu.vue'),
-    props: true
+    props: true,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/parent',
@@ -40,7 +54,10 @@ export default [
         path: 'child',
         component: () => import('@/views/Child.vue')
       }
-    ]
+    ],
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/name_view',
@@ -48,11 +65,17 @@ export default [
       default: () => import('@/views/Child.vue'),
       email: () => import('@/views/Email.vue'),
       tel: () => import('@/views/Tel.vue')
+    },
+    meta: {
+      requiresAuth: true
     }
   },
   {
     path: '/main',
-    redirect: '/'
+    redirect: '/',
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '*',
