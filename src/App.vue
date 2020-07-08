@@ -7,13 +7,25 @@
       <router-link :to="{name: 'Home'}">Home</router-link>  |
       <router-link :to="{name: 'About'}">About</router-link>
     </div>
-    <router-view/>
-    <router-view name="email"/>
-    <router-view name="tel"/>
+    <transition-group name="router">
+      <router-view key="default"/>
+      <router-view key="email" name="email"/>
+      <router-view key="tel" name="tel"/>
+    </transition-group>
   </div>
 </template>
 
 <style lang="less">
+.router-enter,.router-leave-to {
+  opacity: 0;
+}
+.router-enter-to,.router-leave {
+  opacity: 1;
+}
+.router-enter-active,.router-leave-active {
+  transition: all 1s ease;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
