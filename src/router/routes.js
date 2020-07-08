@@ -7,13 +7,17 @@ export default [
     // alias: '/home_page',
     component: Home,
     props: route => {
-      console.log(route)
       return {
         name: route.query.name
       }
     },
     meta: {
       requiresAuth: true
+    },
+    beforeEnter (to, from, next) {
+      if (from.name === 'About') console.log('我从about页来的')
+      else console.log('我从其他页面回来的')
+      next()
     }
   },
   {
