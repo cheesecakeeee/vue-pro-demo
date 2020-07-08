@@ -25,6 +25,18 @@ export default {
   components: {
     HelloWorld
   },
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouteEnter:', from.name)
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    const leave = confirm('是否确定离开')
+    if (leave) next()
+    else next(false)
+  },
+  beforeCreate () {
+    console.log('beforeCreate')
+  },
   methods: {
     handleClick (type) {
       // this.$router.go(-1)
