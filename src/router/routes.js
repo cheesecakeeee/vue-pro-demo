@@ -50,6 +50,10 @@ export default [
     }
   },
   {
+    path: '/store',
+    component: () => import('@/views/Store.vue')
+  },
+  {
     path: '/parent',
     name: 'Parent',
     component: () => import('@/views/Parent.vue'),

@@ -9,7 +9,7 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
-      .set('_c', resolve('components'))
+      .set('_c', resolve('src/components'))
   },
   // 打包时不生成sourceMap，提高打包速度
   productionSourceMap: false,
