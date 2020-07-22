@@ -16,7 +16,7 @@ import AShow from '_c/AShow.vue'
 import { mapState, mapGetters } from 'vuex'
 // 模块命名空间
 // import { createNamespacedHelpers } from 'vuex'
-// const { mapState } =  createNamespacedHelpers('user')
+// const { mapState, mapGetters } =  createNamespacedHelpers('user')
 export default {
   name: 'Store',
   data () {
@@ -41,7 +41,7 @@ export default {
     // })
     // ...mapState({
     //   userName: 'user.userName'
-    // })
+    // }),
     
     // appName () {
     //   return this.$store.state.appName
@@ -52,7 +52,7 @@ export default {
     // 命名空间写法，不需要传模块
     // ...mapState({
     //   userName: state => state.userName
-    // })
+    // }),
     // 计算属性
     inputValueWithLastLetter() {
       return this.value.substr(-1, 1)
@@ -68,7 +68,10 @@ export default {
     }),
     ...mapGetters('user', {
       firstLetter: 'firstLetter'
-    })
+    }),
+    // ...mapGetters({
+    //   firstLetter: 'firstLetter'
+    // })
   },
   components: {
     AInput,
