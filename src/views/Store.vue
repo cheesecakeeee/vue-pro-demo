@@ -6,6 +6,9 @@
     <div>AppName: {{ appName }}</div>
     <div>userName: {{ userName }} -- firstLetter: {{ firstLetter }}</div>
     <div>Version: {{ appNameWithVersion }}</div>
+    <button @click="handleChangeAppName">改变AppName</button>
+    <div>版本: {{ appVersion }}</div>
+    <button @click="handleChangeUserName">改变userName</button>
   </div>
 </template>
 
@@ -13,7 +16,7 @@
 import AInput from '_c/AInput.vue'
 import AShow from '_c/AShow.vue'
 // mapState辅助函数
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 // 模块命名空间
 // import { createNamespacedHelpers } from 'vuex'
 // const { mapState, mapGetters } =  createNamespacedHelpers('user')
@@ -27,7 +30,8 @@ export default {
   computed: {
     // mapState传入数组
     ...mapState([
-      'appName'
+      'appName',
+      'appVersion'
     ]),
     // mapState传入对象
     // 对象的value可以为箭头函数/普通函数/字符串
@@ -66,20 +70,39 @@ export default {
     ...mapGetters({
       appNameWithVersion: 'appNameWithVersion'
     }),
-    ...mapGetters('user', {
-      firstLetter: 'firstLetter'
-    }),
-    // ...mapGetters({
+    // ...mapGetters('user', {
     //   firstLetter: 'firstLetter'
-    // })
+    // }),
+    ...mapGetters({
+      firstLetter: 'firstLetter'
+    })
   },
   components: {
     AInput,
     AShow
   },
   methods: {
+    ...mapMutations([
+      'SET_APP_NAME',
+      'SET_USER_NAME'
+    ]),
     handleInput (val) {
       this.value = val
+    },
+    // handleChangeAppName() {
+    //   this.$store.commit('SET_APP_NAME', {appName: 'newAppName'})
+    // }
+    handleChangeAppName() {
+      // this.$store.commit({
+      //   type: 'SET_APP_NAME',
+      //   appName: '新的AppName'
+      // })
+      this.SET_APP_NAME({ appName: '辅助函数修改的appName'})
+
+      this.$store.commit('SET_APP_VERSION')
+    },
+    handleChangeUserName() {
+      this.SET_USER_NAME({userName: '新的userName'})
     }
   }
 }
