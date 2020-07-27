@@ -16,7 +16,7 @@
 import AInput from '_c/AInput.vue'
 import AShow from '_c/AShow.vue'
 // mapState辅助函数
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 // 模块命名空间
 // import { createNamespacedHelpers } from 'vuex'
 // const { mapState, mapGetters } =  createNamespacedHelpers('user')
@@ -86,6 +86,9 @@ export default {
       'SET_APP_NAME',
       'SET_USER_NAME'
     ]),
+    // ...mapActions([
+    //   'updateAppName'
+    // ]),
     handleInput (val) {
       this.value = val
     },
@@ -97,9 +100,12 @@ export default {
       //   type: 'SET_APP_NAME',
       //   appName: '新的AppName'
       // })
-      this.SET_APP_NAME({ appName: '辅助函数修改的appName'})
+      // this.SET_APP_NAME({ appName: '辅助函数修改的appName'})
 
       this.$store.commit('SET_APP_VERSION')
+
+      // this.updateAppName()
+      this.$store.dispatch('updateAppName')
     },
     handleChangeUserName() {
       this.SET_USER_NAME({userName: '新的userName'})
