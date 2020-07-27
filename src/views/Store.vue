@@ -9,6 +9,8 @@
     <button @click="handleChangeAppName">改变AppName</button>
     <div>版本: {{ appVersion }}</div>
     <button @click="handleChangeUserName">改变userName</button>
+    <button @click="registerModule">动态注册模块</button>
+    <p v-for="(li, index) in todoList" :key="index">{{ li }}</p>
   </div>
 </template>
 
@@ -36,7 +38,8 @@ export default {
     // mapState传入对象
     // 对象的value可以为箭头函数/普通函数/字符串
     ...mapState({
-      userName: state => state.user.userName
+      userName: state => state.user.userName,
+      todoList: state => state.todo ? state.todo.todoList : []
     }),
     // ...mapState({
     //   userName (state) {
@@ -109,6 +112,16 @@ export default {
     },
     handleChangeUserName() {
       this.SET_USER_NAME({userName: '新的userName'})
+    },
+    registerModule() {
+      this.$store.registerModule('todo', {
+        state: {
+          todoList: [
+            '学习mutation',
+            '学习action'
+          ]
+        }
+      })
     }
   }
 }
