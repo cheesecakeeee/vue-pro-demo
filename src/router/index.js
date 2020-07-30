@@ -6,7 +6,7 @@ import { setTitle } from '@/lib/util.js'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  // mode: 'history',
+  mode: 'history',
   routes
 })
 // 实际项目中结合路由元信息（是否认证）判断是否登陆才能访问

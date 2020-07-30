@@ -1,12 +1,13 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/img/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="../assets/img/logo.png"> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <button @click="handleClick('back')">返回上一页</button>
     <button @click="handleClick('push')">跳转parent页</button>
     <button @click="handleClick('replace')">跳转parent页</button>
     <button @click="handleClick('argu')">跳转argu页</button>
     <div>{{name}}</div>
+    <button @click="handleGetUserInfo">请求数据</button>
   </div>
 </template>
 
@@ -61,6 +62,14 @@ export default {
           }
           // path: `/argu/${name}`
         })
+      }
+    },
+    async handleGetUserInfo() {
+      try {
+        const res =  await this.$Api.getUserInfo({userId: 123})
+        console.log(res)
+      } catch (err){
+        console.log(err)
       }
     }
   }
