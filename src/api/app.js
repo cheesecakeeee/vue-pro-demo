@@ -1,4 +1,3 @@
-import service from './service'
 export const getAppName = () => {
   return new Promise((resolve, reject) => {
     const err = null
@@ -8,11 +7,3 @@ export const getAppName = () => {
     })
   })
 }
-
-export default {
-  getUserInfo(params) {
-    return service.get('/getUserInfo', params)
-  }
-}
-
-
