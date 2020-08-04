@@ -3,11 +3,11 @@
     <count-to :endVal="endVal" ref="count_to" :className='fontClass' @on-animation-end='animationEnd'>
       
       <template #left>
-        <span slot="left">总金额: </span>
+        <span>总金额: </span>
       </template>
 
       <template #right>
-        <span slot="right">元</span>
+        <span>元</span>
       </template>
 
     </count-to>  
